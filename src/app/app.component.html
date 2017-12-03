@@ -1,0 +1,10 @@
+<h1>Shopping List</h1>
+<ul>
+  <li
+    *ngFor="let item of items"
+    (click)="toggleDone(item)"
+    [class.done]="item.done"
+  >
+    {{ item.name }}
+  </li>
+</ul>
