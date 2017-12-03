@@ -13,8 +13,13 @@ export class AppComponent {
     { name: 'item4', done: false }
   ];
 
-  toggleDone(item) {
+  toggleDone(item: any) {
     item.done = !item.done;
-    console.log('toggleDone', item);
+
+    this.items.sort((a: any, b: any) :number => {
+      if(a.done && !b.done) return 1;
+      if(!a.done && b.done) return -1;
+      return 0; 
+    });
   }
 }
