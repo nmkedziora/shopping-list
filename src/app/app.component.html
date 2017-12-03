@@ -1,4 +1,12 @@
-<h1>Shopping List</h1>
+<h1>shopping list</h1>
+<label>add new item
+  <input
+    type="text"
+    (keyup.enter)="add(newItemInput)"
+    #newItemInput
+  >
+  <button (click)="add(newItemInput)">add</button>
+</label>
 <ul>
   <li
     *ngFor="let item of items"

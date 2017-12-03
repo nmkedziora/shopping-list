@@ -22,4 +22,19 @@ export class AppComponent {
       return 0; 
     });
   }
+
+  add(input: HTMLInputElement) {
+    this.items.push({
+      name: input.value,
+      done: false
+    });
+
+    this.items.sort((a: any, b: any) :number => {
+      if(a.done && !b.done) return 1;
+      if(!a.done && b.done) return -1;
+      return 0; 
+    });
+
+    input.value = '';
+  }
 }
