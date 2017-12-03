@@ -16,11 +16,7 @@ export class AppComponent {
   toggleDone(item: any) {
     item.done = !item.done;
 
-    this.items.sort((a: any, b: any) :number => {
-      if(a.done && !b.done) return 1;
-      if(!a.done && b.done) return -1;
-      return 0; 
-    });
+    this.sortByDone();
   }
 
   add(input: HTMLInputElement) {
@@ -28,13 +24,15 @@ export class AppComponent {
       name: input.value,
       done: false
     });
+    input.value = '';
+    this.sortByDone();
+  }
 
+  sortByDone() {
     this.items.sort((a: any, b: any) :number => {
       if(a.done && !b.done) return 1;
       if(!a.done && b.done) return -1;
       return 0; 
     });
-
-    input.value = '';
   }
 }
