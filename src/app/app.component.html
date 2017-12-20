@@ -2,14 +2,14 @@
 <label>add new item
   <input
     type="text"
-    (keyup.enter)="add(newItemInput)"
-    #newItemInput
+    (keyup.enter)="add(item)"
+    #item
   >
-  <button (click)="add(newItemInput)">add</button>
+  <button (click)="add(item)">add</button>
 </label>
 <ul>
   <li
-    *ngFor="let item of items"
+    *ngFor="let item of items$ | async"
     (click)="toggleDone(item)"
     [class.done]="item.done"
   >
